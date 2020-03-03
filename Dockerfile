@@ -39,14 +39,9 @@ RUN docker-php-ext-install -j$(nproc) xmlrpc
 RUN apt install -y libzip-dev
 #RUN docker-php-ext-install zip
 RUN docker-php-ext-install -j$(nproc) zip
-#COPY . /var/www/html/
-#RUN rm /var/www/html/includes/config.php
-#RUN rm /var/www/html/Dockerfile
-#RUN rm /var/www/html/build-docker.sh
-#RUN rm /var/www/html/push-docker.sh
-#RUN rm /var/www/html/__vendor.zip
-#RUN rm -rf /var/www/html/.idea
-#RUN rm -rf /var/www/html/.git
-#RUN rm -rf /var/www/html/db_design
-#RUN chown -R www-data:www-data /var/www/html
+# Instal MS TTS font
+RUN apt install -y cabextract
+RUN wget http://ftp.de.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb
+RUN dpkg -i ttf-mscorefonts-installer_3.6_all.deb
+RUN rm ttf-mscorefonts-installer_3.6_all.deb
 
