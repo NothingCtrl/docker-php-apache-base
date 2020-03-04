@@ -1,5 +1,5 @@
 # Dockerfile
-FROM php:7.4-apache
+FROM php:7.4.3-apache
 MAINTAINER thangdb@solarbk.vn
 RUN a2enmod rewrite
 RUN apt update
