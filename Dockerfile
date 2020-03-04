@@ -48,3 +48,7 @@ RUN rm ttf-mscorefonts-installer_3.6_all.deb
 RUN apt install -y zlib1g-dev libpng-dev libjpeg-dev libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install -j$(nproc) gd
+# Install ping command
+RUN apt install -y iputils-ping
+# install socket
+RUN docker-php-ext-install sockets
