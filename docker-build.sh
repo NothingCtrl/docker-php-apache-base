@@ -1,2 +1,3 @@
 #!/bin/bash
-sudo docker build . -t nothingctrl/php-apache-base:7.4.3-v2.1.2
+# file: docker-build.sh
+sudo docker build . -t nothingctrl/php-apache-base:v7.4.3-2.2

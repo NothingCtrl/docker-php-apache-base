@@ -52,3 +52,16 @@ RUN docker-php-ext-install -j$(nproc) gd
 RUN apt install -y iputils-ping
 # install socket
 RUN docker-php-ext-install sockets
+# xdebug
+ARG XDEBUG_VERSION=2.9.4
+RUN mkdir -p /usr/src/php/ext/xdebug && \
+    curl -fsSL https://xdebug.org/files/xdebug-${XDEBUG_VERSION}.tgz | tar xz -C /usr/src/php/ext/xdebug --strip 1 && \
+    docker-php-ext-install xdebug && \
+    echo '[xdebug] \n\
+xdebug.remote_host = "172.17.0.1" \n\
+xdebug.default_enable = 1 \n\
+xdebug.remote_autostart = 1 \n\
+xdebug.remote_connect_back = 0 \n\
+xdebug.remote_enable = 1 \n\
+xdebug.remote_handler = "dbgp" \n\
+xdebug.remote_port = 9000' >> /usr/local/etc/php/php.ini
