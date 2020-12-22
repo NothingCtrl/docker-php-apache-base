@@ -65,4 +65,4 @@ xdebug.remote_connect_back = 0 \n\
 xdebug.remote_enable = 1 \n\
 xdebug.remote_handler = "dbgp" \n\
 xdebug.remote_port = 9000' >> /usr/local/etc/php/php.ini
-RUN apt install -y dnsutils
+RUN apt update && apt install -y dnsutils
